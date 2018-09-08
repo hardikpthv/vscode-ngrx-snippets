@@ -221,8 +221,8 @@
         "body": [
             "case ${1:alias}${2:ACTION_TYPE}: {",
             "\t//add your code",
-            "\t\treturn { ...state };",
-            "\t}",
+            "\treturn { ...state };",
+            "}",
             ""
         ]
     },
