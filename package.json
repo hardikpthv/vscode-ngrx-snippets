@@ -2,12 +2,12 @@
     "name": "NgRxSnippets",
     "displayName": "NgRx Snippets",
     "description": "NgRx with TypeScript snippets for Angular Apps",
-    "version": "0.0.1",
+    "version": "0.2.0",
     "publisher": "hardikpthv",
     "license": "MIT",
     "icon": "images/ngrx.png",
     "galleryBanner": {
-        "color": "#7804f3ba",
+        "color": "#9D68F5",
         "theme": "dark"
     },
     "homepage": "https://github.com/hardikpthv/vscode-ngrx-snippets/blob/master/README.md",
@@ -19,9 +19,9 @@
         "url": "https://github.com/hardikpthv/vscode-ngrx-snippets.git"
     },
     "keywords": [
+        "ngrx",
+        "ngrx-effects",
         "Angular",
-        "NgRx",
-        "Reducer",
         "Reactive",
         "TypeScript"
     ],
