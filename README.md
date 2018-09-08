@@ -33,7 +33,7 @@ Start typing `ngrx-*` and hit `enter`, the snippet spreads out.
 | ngrx-effect-setup       | Fully configured Effect                                            |
 | ngrx-effect             | Effect                                                             |
 | ngrx-reducer            | Reducer                                                            |
-| ngrx-reducer-case       | `case:` for reducer's `switch`                                     |
+| ngrx-case               | `case:` for reducer's `switch`                                     |
 | ngrx-selector           | `createSelector()`                                                 |
 | ngrx-feat-selector      | `createFeatureSelector()`                                          |
 | ngrx-store-select       | `store.select()`                                                   |
