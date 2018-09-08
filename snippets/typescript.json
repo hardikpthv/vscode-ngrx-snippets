@@ -1,0 +1,256 @@
+{
+    "NgRx Actions Setup": {
+        "prefix": "ngrx-actions-setup",
+        "description": "NgRx actions fully configured with action constants, creators with success and fail.",
+        "body": [
+            "import { Action } from '@ngrx/store';",
+            "",
+            "export const ${1:ACTION_CONST} = \"${2:ACTION_STR}\"",
+            "export const ${1}_SUCCESS = \"${2} SUCCESS\"",
+            "export const ${1}_FAIL = \"${2} FAIL\"",
+            "",
+            "export class ${3:ActionCreator} implements Action {",
+            "\treadonly type = ${1};",
+            "\tconstructor() { }",
+            "}\n",
+            "export class ${3}Success implements Action {",
+            "\treadonly type = ${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class ${3}Fail implements Action {",
+            "\treadonly type = ${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export type ${3}Action = ${3} | ${3}Success | ${3}Fail;"
+        ]
+    },
+    "NgRx Actions CRUD Setup": {
+        "prefix": "ngrx-actions-setup-crud",
+        "description": "NgRx actions for CRUD operations.",
+        "body": [
+            "import { Action } from '@ngrx/store';",
+            "",
+            "export const LOAD_${1:ACTION_CONST} = \"LOAD ${2:ACTION_STR}\"",
+            "export const LOAD_${1}_SUCCESS = \"LOAD ${2} SUCCESS\"",
+            "export const LOAD_${1}_FAIL = \"LOAD ${2} FAIL\"",
+            "",
+            "export class Load${3:ActionCreator} implements Action {",
+            "\treadonly type = LOAD_${1};",
+            "}\n",
+            "export class Load${3}Success implements Action {",
+            "\treadonly type = LOAD_${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Load${3}Fail implements Action {",
+            "\treadonly type = LOAD_${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}",
+            "",
+            "export const CREATE_${1:ACTION_CONST} = \"CREATE ${2:ACTION_STR}\"",
+            "export const CREATE_${1}_SUCCESS = \"CREATE ${2} SUCCESS\"",
+            "export const CREATE_${1}_FAIL = \"CREATE ${2} FAIL\"",
+            "",
+            "export class Create${3:ActionCreator} implements Action {",
+            "\treadonly type = CREATE_${1};",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Create${3}Success implements Action {",
+            "\treadonly type = CREATE_${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Create${3}Fail implements Action {",
+            "\treadonly type = CREATE_${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}",
+            "",
+            "export const UPDATE_${1:ACTION_CONST} = \"UPDATE ${2:ACTION_STR}\"",
+            "export const UPDATE_${1}_SUCCESS = \"UPDATE ${2} SUCCESS\"",
+            "export const UPDATE_${1}_FAIL = \"UPDATE ${2} FAIL\"",
+            "",
+            "export class Update${3:ActionCreator} implements Action {",
+            "\treadonly type = UPDATE_${1};",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Update${3}Success implements Action {",
+            "\treadonly type = UPDATE_${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Update${3}Fail implements Action {",
+            "\treadonly type = UPDATE_${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}",
+            "",
+            "export const DELETE_${1:ACTION_CONST} = \"DELETE ${2:ACTION_STR}\"",
+            "export const DELETE_${1}_SUCCESS = \"DELETE ${2} SUCCESS\"",
+            "export const DELETE_${1}_FAIL = \"DELETE ${2} FAIL\"",
+            "",
+            "export class Delete${3:ActionCreator} implements Action {",
+            "\treadonly type = DELETE_${1};",
+            "\tconstructor(public id: number) { }",
+            "}\n",
+            "export class Delete${3}Success implements Action {",
+            "\treadonly type = DELETE_${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n",
+            "export class Delete${3}Fail implements Action {",
+            "\treadonly type = DELETE_${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}",
+            "",
+            "export type ${3}Action =",
+            "  | Load${3}",
+            "  | Load${3}Success",
+            "  | Load${3}Fail",
+            "  | Create${3}",
+            "  | Create${3}Success",
+            "  | Create${3}Fail",
+            "  | Update${3}",
+            "  | Update${3}Success",
+            "  | Update${3}Fail",
+            "  | Delete${3}",
+            "  | Delete${3}Success",
+            "  | Delete${3}Fail;",
+            ""
+        ]
+    },
+    "NgRx Basic Action": {
+        "prefix": "ngrx-action",
+        "description": "NgRx action constant and creator.",
+        "body": [
+            "export const ${1:ACTION_CONST} = \"${2:ACTION_STR}\"\n",
+            "export class ${3:ActionCreator} implements Action {",
+            "\treadonly type = ${1};",
+            "\tconstructor() { }",
+            "}\n"
+        ]
+    },
+    "NgRx Success Action": {
+        "prefix": "ngrx-action-success",
+        "description": "NgRx action constant and creator as success",
+        "body": [
+            "export const ${1:ACTION_CONST}_SUCCESS = \"${2:ACTION_STR}\"\n",
+            "export class ${3:ActionCreator}Success implements Action {",
+            "\treadonly type = ${1}_SUCCESS;",
+            "\tconstructor(public payload: any) { }",
+            "}\n"
+        ]
+    },
+    "NgRx Fail Action": {
+        "prefix": "ngrx-action-fail",
+        "description": "NgRx action constant and creator as  fail.",
+        "body": [
+            "export const ${1:ACTION_CONST}_FAIL = \"${2:ACTION_STR}\"\n",
+            "export class ${3:ActionCreator} implements Action {",
+            "\treadonly type = ${1}_FAIL;",
+            "\tconstructor(public payload: any) { }",
+            "}\n"
+        ]
+    },
+    "NgRx Effects Setup": {
+        "prefix": "ngrx-effect-setup",
+        "description": "NgRx effect setup",
+        "body": [
+            "import { Injectable } from '@angular/core';",
+            "import { Actions, Effect } from '@ngrx/effects';",
+            "",
+            "import { catchError, map, switchMap } from 'rxjs/operators';",
+            "",
+            "//import all requried actions and services",
+            "",
+            "@Injectable()",
+            "export class ${1:Name}Effects {",
+            "\tconstructor(private action$: Actions) {}",
+            "",
+            "\t@Effect()",
+            "\t${2:effectName}$ = this.action$.ofType(${3:ACTION_TYPE}).pipe(",
+            "\t\tswitchMap(() => {",
+            "\t\t\t/*return this.myService().pipe(",
+            "\t\t\t\tmap(data => data),",
+            "\t\t\t\tcatchError(error => error)",
+            "\t\t\t\t//dispatch action with payload in `map`",
+            "\t\t\t\t//dispatch action with error in `catchError`",
+            "\t\t\t);*/",
+            "\t\t})",
+            "\t);",
+            "}"
+        ]
+    },
+    "NgRx Effect": {
+        "prefix": "ngrx-effect",
+        "description": "NgRx effect",
+        "body": [
+            "@Effect()",
+            "${1:effectName}$ = this.action$.ofType(${2:ACTION_TYPE}).pipe(",
+            "\tswitchMap(() => {",
+            "\t\t/*return this.myService().pipe(",
+            "\t\t\tmap(data => data),",
+            "\t\t\tcatchError(error => error)",
+            "\t\t);*/",
+            "\t})",
+            ");"
+        ]
+    },
+    "NgRx Reducer Setup": {
+        "prefix": "ngrx-reducer",
+        "description": "NgRx reducer setup",
+        "body": [
+            "import * as ${2:alias} from '${1:actions}';",
+            "\t//import or declare state",
+            "",
+            "export const intialState = {",
+            "\t//set intial state",
+            "};",
+            "export function ${3:name}Reducer(state = intialState, action: ${2}.Action) {",
+            "\tswitch (action.type) {",
+            "\t\tcase ${2}.${4:ACTION_TYPE}: {",
+            "\t\t\t//add your code",
+            "\t\t\treturn { ...state };",
+            "\t\t}",
+            "",
+            "\t\tdefault: ",
+            "\t\t\treturn state;",
+            "\t}",
+            "}"
+        ]
+    },
+    "NgRx Reducer Switch Case": {
+        "prefix": "ngrx-reducer-case",
+        "description": "NgRx Reducer Switch Case",
+        "body": [
+            "case ${1:alias}.${2:ACTION_TYPE}: {",
+            "\t//add your code",
+            "\t\treturn { ...state };",
+            "\t}",
+            ""
+        ]
+    },
+    "NgRx Select Store": {
+        "prefix": "ngrx-store-select",
+        "description": "NgRx select store",
+        "body": [
+            "this.store.pipe(select('${1:sliceOfState}'))"
+        ]
+    },
+    "NgRx Dispatch Action": {
+        "prefix": "ngrx-dispatch-action",
+        "description": "NgRx Dispatch Action",
+        "body": [
+            "this.store.dispatch(${1:ActionClass});"
+        ]
+    },
+    "NgRx Selector": {
+        "prefix": "ngrx-selector",
+        "description": "NgRx Selector",
+        "body": [
+            "export const ${2:getStateSlice} = () =>",
+            "\tcreateSelector(${1:getState}, (state) => state);"
+        ]
+    },
+    "NgRx Feature Selector": {
+        "prefix": "ngrx-feat-selector",
+        "description": "NgRx Feature Selector",
+        "body": [
+            "export const get${2:state} = createFeatureSelector('${1:selector}');"
+        ]
+    }
+}
