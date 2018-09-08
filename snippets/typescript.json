@@ -153,20 +153,22 @@
             "import { Injectable } from '@angular/core';",
             "import { Actions, Effect } from '@ngrx/effects';",
             "",
+            "import { of } from 'rxjs';",
             "import { catchError, map, switchMap } from 'rxjs/operators';",
             "",
-            "//import all requried actions and services",
+            "import * as ${2:alias} from '${1:actions}';",
+            "//import all requried services or any dependencies",
             "",
             "@Injectable()",
-            "export class ${1:Name}Effects {",
-            "\tconstructor(private action$: Actions) {}",
+            "export class ${3:Name}Effects {",
+            "\tconstructor(private action$: Actions) { }",
             "",
             "\t@Effect()",
-            "\t${2:effectName}$ = this.action$.ofType(${3:ACTION_TYPE}).pipe(",
+            "\t${4:effectName}$ = this.action$.ofType(${2}${5:ACTION_TYPE}).pipe(",
             "\t\tswitchMap(() => {",
             "\t\t\t/*return this.myService().pipe(",
             "\t\t\t\tmap(data => data),",
-            "\t\t\t\tcatchError(error => error)",
+            "\t\t\t\tcatchError(error => of(error))",
             "\t\t\t\t//dispatch action with payload in `map`",
             "\t\t\t\t//dispatch action with error in `catchError`",
             "\t\t\t);*/",
@@ -195,14 +197,14 @@
         "description": "NgRx reducer setup",
         "body": [
             "import * as ${2:alias} from '${1:actions}';",
-            "\t//import or declare state",
+            "//import or declare state",
             "",
             "export const intialState = {",
             "\t//set intial state",
             "};",
-            "export function ${3:name}Reducer(state = intialState, action: ${2}.Action) {",
+            "export function ${3:name}Reducer(state = intialState, action: ${2}.${4:AllActions}) {",
             "\tswitch (action.type) {",
-            "\t\tcase ${2}.${4:ACTION_TYPE}: {",
+            "\t\tcase ${2}.${5:ACTION_TYPE}: {",
             "\t\t\t//add your code",
             "\t\t\treturn { ...state };",
             "\t\t}",
@@ -214,7 +216,7 @@
         ]
     },
     "NgRx Reducer Switch Case": {
-        "prefix": "ngrx-reducer-case",
+        "prefix": "ngrx-case",
         "description": "NgRx Reducer Switch Case",
         "body": [
             "case ${1:alias}.${2:ACTION_TYPE}: {",
@@ -242,15 +244,15 @@
         "prefix": "ngrx-selector",
         "description": "NgRx Selector",
         "body": [
-            "export const ${2:getStateSlice} = () =>",
-            "\tcreateSelector(${1:getState}, (state) => state);"
+            "export const ${4:getStateSlice} = () =>",
+            "\tcreateSelector(${1:getState}, (state: ${2:any}) => state${3:state});"
         ]
     },
     "NgRx Feature Selector": {
         "prefix": "ngrx-feat-selector",
         "description": "NgRx Feature Selector",
         "body": [
-            "export const get${2:state} = createFeatureSelector('${1:selector}');"
+            "export const get${3:state} = createFeatureSelector<${2:any}>('${1:selector}');"
         ]
     }
 }
