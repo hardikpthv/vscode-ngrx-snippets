@@ -40,4 +40,4 @@ Start typing `ngrx-*` and hit `enter`, the snippet spreads out.
 | ngrx-dispatch-action    | `store.dispatch()`                                                 |
 
 ### Using Angular Material
- - Check out [Angular Material Snippets](https://marketplace.visualstudio.com/items?itemName=hardikpthv.AngularMaterial)
+ - Check out [Angular Material Snippets](https://bit.ly/ng-material-vscode)

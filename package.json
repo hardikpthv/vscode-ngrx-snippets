@@ -2,7 +2,7 @@
     "name": "NgRxSnippets",
     "displayName": "NgRx Snippets",
     "description": "NgRx with TypeScript snippets for Angular Apps",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "publisher": "hardikpthv",
     "license": "MIT",
     "icon": "images/ngrx.png",
