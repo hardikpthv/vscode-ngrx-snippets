@@ -1,7 +1,7 @@
 
-<a name="0.3.3"></a>
+<a name="0.4.0"></a>
 
-## 0.3.3 (2019-12-24)
+## 0.4.0 (2019-12-24)
 
 * Fixed `ofType` moved into `pipe` ([afc31d9](https://github.com/hardikpthv/vscode-ngrx-snippets/pull/2/commits/afc31d9dc0c826bac4760f74e9a6ae29b49d1b46))
 
