@@ -1,3 +1,10 @@
+<a name="9.1.0"></a>
+
+## 9.1.0 (2020-07-04)
+
+* Reverted Typescript snippets for:
+  * Effects and its setup to support [v7](https://v7.ngrx.io/guide/effects#writing-effects) style of using `@Effect()`
+
 <a name="9.0.0"></a>
 
 ## 9.0.0 (2020-07-04)

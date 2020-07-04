@@ -174,9 +174,9 @@
       "}\n"
     ]
   },
-  "NgRx Effects Setup": {
-    "prefix": "ngrx-effect-setup",
-    "description": "NgRx effect setup",
+  "NgRx Create Effect Setup": {
+    "prefix": "ngrx-create-effect-setup",
+    "description": "NgRx create effect setup",
     "body": [
       "import { Injectable } from '@angular/core';",
       "import { Actions, createEffect, ofType } from '@ngrx/effects';",
@@ -204,9 +204,9 @@
       "}"
     ]
   },
-  "NgRx Effect": {
-    "prefix": "ngrx-effect",
-    "description": "NgRx effect",
+  "NgRx Create Effect": {
+    "prefix": "ngrx-create-effect",
+    "description": "NgRx create effect",
     "body": [
       "${1:effectName}$ = createEffect(() =>",
       "\tthis.actions$.pipe(",
@@ -218,6 +218,54 @@
       "\t\t\t*/",
       "\t\t})",
       "\t)",
+      ");"
+    ]
+  },
+  "NgRx Effects Setup": {
+    "prefix": "ngrx-effect-setup",
+    "description": "NgRx effect setup",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Actions, Effect, ofType } from '@ngrx/effects';",
+      "",
+      "// import { of } from 'rxjs';",
+      "import { catchError, map, switchMap } from 'rxjs/operators';",
+      "",
+      "import * as ${2:alias} from '${1:actions}';",
+      "//import all requried services or any dependencies",
+      "",
+      "@Injectable()",
+      "export class ${3:Name}Effects {",
+      "\tconstructor(private action$: Actions) { }",
+      "",
+      "\t@Effect()",
+      "\t${4:effectName}$ = this.action$.pipe(",
+      "\t\tofType(${2}${5:ACTION_TYPE}),",
+      "\t\tswitchMap(() => {",
+      "\t\t\t/*return this.myService().pipe(",
+      "\t\t\t\tmap(data => data),",
+      "\t\t\t\tcatchError(error => of(error))",
+      "\t\t\t\t//dispatch action with payload in `map`",
+      "\t\t\t\t//dispatch action with error in `catchError`",
+      "\t\t\t);*/",
+      "\t\t})",
+      "\t);",
+      "}"
+    ]
+  },
+  "NgRx Effect": {
+    "prefix": "ngrx-effect",
+    "description": "NgRx effect",
+    "body": [
+      "@Effect()",
+      "${1:effectName}$ = this.action$.pipe(",
+      "\tofType(${2:ACTION_TYPE}),",
+      "\tswitchMap(() => {",
+      "\t\t/*return this.myService().pipe(",
+      "\t\t\tmap(data => data),",
+      "\t\t\tcatchError(error => error)",
+      "\t\t);*/",
+      "\t})",
       ");"
     ]
   },

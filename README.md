@@ -37,8 +37,10 @@ Start typing `ngrx-*` and hit `enter`, the snippet spreads out.
 | ngrx-action                    | Action                                                             |
 | ngrx-action-success            | Success Action                                                     |
 | ngrx-action-fail               | Fail Action                                                        |
-| ngrx-effect-setup              | Fully configured Effect using `createEffect`                       |
+| ngrx-effect-setup              | Fully configured Effect                                            |
 | ngrx-effect                    | Effect                                                             |
+| ngrx-create-effect-setup       | Fully configured Effect using `createEffect`                       |
+| ngrx-create-effect             | `createEffect` function                                            |
 | ngrx-root-effect-registration  | Effect Registration for root module                                |
 | ngrx-feat-effect-registration  | Effect Registration for feature module                             |
 | ngrx-reducer                   | Reducer                                                            |
