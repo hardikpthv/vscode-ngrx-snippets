@@ -24,6 +24,34 @@
             "export type Actions = ${2} | ${2}Success | ${2}Fail;"
         ]
     },
+    "NgRx Create Action Setup": {
+        "prefix": "ngrx-create-action-setup",
+        "description": "NgRx create action setup.",
+        "body": [
+            "import { createAction } from '@ngrx/store';",
+            "// ${1} action",
+            "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
+        ]
+    },
+    "NgRx Create Action": {
+        "prefix": "ngrx-create-action",
+        "description": "NgRx create action.",
+        "body": [            
+            "// ${1} action",
+            "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
+        ]
+    },
+    "NgRx Create Action with Props": {
+        "prefix": "ngrx-create-action-props",
+        "description": "NgRx create action with props.",
+        "body": [            
+            "// ${1} action",
+            "export const ${1:action} = createAction(",
+            "\t'[${2:source}] ${3:event}',",
+            "\t props<{${4:key}: ${5:type}}>()",
+            ");"
+        ]
+    },
     "NgRx Actions CRUD Setup": {
         "prefix": "ngrx-actions-setup-crud",
         "description": "NgRx actions for CRUD operations.",
@@ -151,28 +179,27 @@
         "description": "NgRx effect setup",
         "body": [
             "import { Injectable } from '@angular/core';",
-            "import { Actions, Effect } from '@ngrx/effects';",
-            "",
-            "import { of } from 'rxjs';",
-            "import { catchError, map, switchMap } from 'rxjs/operators';",
+            "import { Actions, createEffect, ofType } from '@ngrx/effects';",            
+            "// import { EMPTY } from 'rxjs';",
+            "// import { map, mergeMap, catchError } from 'rxjs/operators';",
             "",
             "import * as ${2:alias} from '${1:actions}';",
             "//import all requried services or any dependencies",
             "",
             "@Injectable()",
             "export class ${3:Name}Effects {",
-            "\tconstructor(private action$: Actions) { }",
+            "\tconstructor(private actions$: Actions) { }",
             "",
-            "\t@Effect()",
-            "\t${4:effectName}$ = this.action$.ofType(${2}${5:ACTION_TYPE}).pipe(",
-            "\t\tswitchMap(() => {",
-            "\t\t\t/*return this.myService().pipe(",
-            "\t\t\t\tmap(data => data),",
-            "\t\t\t\tcatchError(error => of(error))",
-            "\t\t\t\t//dispatch action with payload in `map`",
-            "\t\t\t\t//dispatch action with error in `catchError`",
-            "\t\t\t);*/",
-            "\t\t})",
+            "\t${4:effectName}$ = createEffect(() =>",
+            "\t\tthis.actions$.pipe(",
+            "\t\t\tofType(${2}${5:action}),",
+            "\t\t\tmergeMap(() => {",
+            "\t\t\t\t/*this.myService.pipe(",
+            "\t\t\t\t\tmap(data => data)",            
+            "\t\t\t\t\tcatchError(() => EMPTY)",
+            "\t\t\t\t*/",
+            "\t\t\t})",
+            "\t\t)",
             "\t);",
             "}"
         ]
@@ -181,49 +208,75 @@
         "prefix": "ngrx-effect",
         "description": "NgRx effect",
         "body": [
-            "@Effect()",
-            "${1:effectName}$ = this.action$.ofType(${2:ACTION_TYPE}).pipe(",
-            "\tswitchMap(() => {",
-            "\t\t/*return this.myService().pipe(",
-            "\t\t\tmap(data => data),",
-            "\t\t\tcatchError(error => error)",
-            "\t\t);*/",
-            "\t})",
+            "${1:effectName}$ = createEffect(() =>",
+            "\tthis.actions$.pipe(",
+            "\t\tofType(${2:action}),",
+            "\t\tmergeMap(() => {",
+            "\t\t\t/*this.myService.pipe(",
+            "\t\t\t\tmap(data => data)",            
+            "\t\t\t\tcatchError(() => EMPTY)",
+            "\t\t\t*/",
+            "\t\t})",
+            "\t)",
             ");"
         ]
     },
+    "NgRx Root Effect Registration": {
+        "prefix": "ngrx-root-effect-registration",
+        "description": "NgRx Root Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
+        "body": [
+            "EffectsModule.forRoot([${1:effect}])"
+        ]
+    },
+    "NgRx Feature Effect Registration": {
+        "prefix": "ngrx-feat-effect-registration",
+        "description": "NgRx Feature Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
+        "body": [
+            "EffectsModule.forFeature([${1:effect}])"
+        ]
+    },
     "NgRx Reducer Setup": {
-        "prefix": "ngrx-reducer",
+        "prefix": "ngrx-reducer-setup",
         "description": "NgRx reducer setup",
         "body": [
-            "import * as ${2:alias} from '${1:actions}';",
-            "//import or declare state",
+            "import { Action, createReducer, on } from '@ngrx/store';",                        
+            "import * as ${2:alias} from '${1:actions}';",            
+            "",
+            "export interface State {",
+            "\t// define state ",
+            "};",
             "",
             "export const initialState = {",
             "\t//set initial state",
             "};",
-            "export function ${3:name}Reducer(state = initialState, action: ${2}${4:AllActions}) {",
-            "\tswitch (action.type) {",
-            "\t\tcase ${2}${5:ACTION_TYPE}: {",
-            "\t\t\t//add your code",
-            "\t\t\treturn { ...state };",
-            "\t\t}",
             "",
-            "\t\tdefault: ",
-            "\t\t\treturn state;",
-            "\t}",
+            "const ${3:feature}Reducer = createReducer(",
+            "\tinitialState,",
+            "\ton(${2}${4:action}, state => ({ ...state, ${5:prop}: ${6:newValue} })),",            
+            ");",
+            "export function reducer(state: State, action: Action) {",
+            "\treturn ${3}Reducer(state, action);",
+            "}"            
+        ]
+    },
+    "NgRx Reducer": {
+        "prefix": "ngrx-reducer",
+        "description": "NgRx reducer",
+        "body": [            
+            "const ${1:feature}Reducer = createReducer(",
+            "\tinitialState,",
+            "\ton(${2:action}, state => ({ ...state, ${3:prop}: ${4:newValue} })),",            
+            ");",
+            "export function reducer(state: State, action: Action) {",
+            "\treturn ${1}Reducer(state, action);",
             "}"
         ]
     },
-    "NgRx Reducer Switch Case": {
-        "prefix": "ngrx-case",
-        "description": "NgRx Reducer Switch Case",
+    "NgRx Reducer Ons": {
+        "prefix": "ngrx-on",
+        "description": "NgRx Reducer 'On'",
         "body": [
-            "case ${1:alias}${2:ACTION_TYPE}: {",
-            "\t//add your code",
-            "\treturn { ...state };",
-            "}",
-            ""
+            "on(${1:action}, state => ({ ...state, ${2:prop}: ${3:newValue} })),"
         ]
     },
     "NgRx Select Store": {
@@ -253,6 +306,96 @@
         "description": "NgRx Feature Selector",
         "body": [
             "export const get${3:state} = createFeatureSelector<${2:any}>('${1:selector}');"
+        ]
+    },
+    "NgRx Devtool Instrument": {
+        "prefix": "ngrx-devtool-instrument",
+        "description": "NgRx Devltool Instrument.\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools'",
+        "body": [
+            "StoreDevtoolsModule.instrument({",
+            "\tmaxAge: ${1:maxAge},",
+            "\tlogOnly: false,",
+            "\tfeatures: {",
+            "\t\tpause: false,",
+            "\t\tlock: true,",
+            "\t\tpersist: true",
+            "\t}",
+            "})"
+        ]
+    },
+    "NgRx Entity Adapter Setup": {
+        "prefix": "ngrx-entity-adapter-setup",
+        "description": "NgRx Entity Adapter.",
+        "body": [
+            "import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';",
+            "",
+            "export interface ${1:CustomEntity} {",
+            "\t// define properties",
+            "}",
+            "",
+            "export interface State extends EntityState<${1}> {",
+            "\t// define entities state properties",
+            "}",            
+            "\n// define methods to be used in adapter\n",
+            "export const adapter: EntityAdapter<${1}> = createEntityAdapter<${1}>({",
+            "\t// define adapter methods",
+            "});"
+        ]
+    },
+    "NgRx Entities Setup": {
+        "prefix": "ngrx-entities-setup",
+        "description": "NgRx Entities Setup",
+        "body": [
+            "import { EntityMetadataMap } from '@ngrx/data';",
+            "",
+            "const entityMetadata: EntityMetadataMap = {",
+            "\t// define entities",
+            "}",
+            "",
+            "export const entityConfig = {",
+            "\t// entities",
+            "}"
+        ]
+    },
+    "NgRx Entity Store Registration": {
+        "prefix": "ngrx-entity-store-registration",
+        "description": "NgRx Entity Store Registration.\nimport { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';",
+        "body": [
+            "EntityDataModule.forRoot([${1:entityConfig}])"
+        ]
+    },
+    "NgRx Entity Data Service": {
+        "prefix": "ngrx-entity-data-service",
+        "description": "NgRx Entity Data Service.",
+        "body": [
+            "import { Injectable } from '@angular/core';",
+            "import {",
+            "\tEntityCollectionServiceBase,",
+            "\tEntityCollectionServiceElementsFactory",
+            "\tQueryParams",
+            "} from '@ngrx/data';",
+
+            "import { Observable } from 'rxjs';",
+            "import { ${2:model} } from '${1:modelPath}';",
+            "",
+            "@Injectable({ providedIn: 'root' })",
+            "export class ${2}Service extends EntityCollectionServiceBase<${2}> {",
+            "\tconstructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {",
+            "\t\tsuper('${2}', serviceElementsFactory);",
+            "\t}",
+            "",
+            "\tgetAll(): Observable<${2}[]> {",
+            "\t\treturn super.getAll().pipe(/*data manupulation*/);",
+            "\t}",
+            "",
+            "\tgetById(id: string | number): Observable<${2}> {",
+            "\t\treturn super.getById(id).pipe(/*data manupulation*/);",
+            "\t}",
+            "",
+            "\tgetWithQuery(params: string | QueryParams): Observable<${2}[]> {",
+            "\t\treturn super.getWithQuery(params).pipe(/*data manupulation*/);",
+            "\t}",
+            "}"
         ]
     }
 }
