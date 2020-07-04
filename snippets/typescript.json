@@ -1,401 +1,391 @@
 {
-    "NgRx Actions Setup": {
-        "prefix": "ngrx-actions-setup",
-        "description": "NgRx actions fully configured with action constants, creators with success and fail.",
-        "body": [
-            "import { Action } from '@ngrx/store';",
-            "",
-            "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"",
-            "export const ${1}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"",
-            "export const ${1}_FAIL = \"${1/[\\_]/ /g} FAIL\"",
-            "",
-            "export class ${2:ActionCreator} implements Action {",
-            "\treadonly type = ${1};",
-            "\tconstructor() { }",
-            "}\n",
-            "export class ${2}Success implements Action {",
-            "\treadonly type = ${1}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class ${2}Fail implements Action {",
-            "\treadonly type = ${1}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export type Actions = ${2} | ${2}Success | ${2}Fail;"
-        ]
-    },
-    "NgRx Create Action Setup": {
-        "prefix": "ngrx-create-action-setup",
-        "description": "NgRx create action setup.",
-        "body": [
-            "import { createAction } from '@ngrx/store';",
-            "// ${1} action",
-            "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
-        ]
-    },
-    "NgRx Create Action": {
-        "prefix": "ngrx-create-action",
-        "description": "NgRx create action.",
-        "body": [            
-            "// ${1} action",
-            "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
-        ]
-    },
-    "NgRx Create Action with Props": {
-        "prefix": "ngrx-create-action-props",
-        "description": "NgRx create action with props.",
-        "body": [            
-            "// ${1} action",
-            "export const ${1:action} = createAction(",
-            "\t'[${2:source}] ${3:event}',",
-            "\t props<{${4:key}: ${5:type}}>()",
-            ");"
-        ]
-    },
-    "NgRx Actions CRUD Setup": {
-        "prefix": "ngrx-actions-setup-crud",
-        "description": "NgRx actions for CRUD operations.",
-        "body": [
-            "import { Action } from '@ngrx/store';",
-            "",
-            "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"",
-            "export const ${1}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"",
-            "export const ${1}_FAIL = \"${1/[\\_]/ /g} FAIL\"",
-            "",
-            "export class Load${2:ActionCreator} implements Action {",
-            "\treadonly type = ${1};",
-            "}\n",
-            "export class Load${2}Success implements Action {",
-            "\treadonly type = ${1}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Load${2}Fail implements Action {",
-            "\treadonly type = ${1}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}",
-            "",
-            "export const CREATE_${3:ACTION_CONST} = \"CREATE ${3}\"",
-            "export const CREATE_${3}_SUCCESS = \"CREATE ${3} SUCCESS\"",
-            "export const CREATE_${3}_FAIL = \"CREATE ${3} FAIL\"",
-            "",
-            "export class Create${4:ActionCreator} implements Action {",
-            "\treadonly type = CREATE_${3};",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Create${4}Success implements Action {",
-            "\treadonly type = CREATE_${3}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Create${4}Fail implements Action {",
-            "\treadonly type = CREATE_${3}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}",
-            "",
-            "export const UPDATE_${3} = \"UPDATE ${3}\"",
-            "export const UPDATE_${3}_SUCCESS = \"UPDATE ${3} SUCCESS\"",
-            "export const UPDATE_${3}_FAIL = \"UPDATE ${3} FAIL\"",
-            "",
-            "export class Update${4} implements Action {",
-            "\treadonly type = UPDATE_${3};",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Update${4}Success implements Action {",
-            "\treadonly type = UPDATE_${3}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Update${4}Fail implements Action {",
-            "\treadonly type = UPDATE_${3}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}",
-            "",
-            "export const DELETE_${3} = \"DELETE ${3:ACTION_STR}\"",
-            "export const DELETE_${3}_SUCCESS = \"DELETE ${3} SUCCESS\"",
-            "export const DELETE_${3}_FAIL = \"DELETE ${3} FAIL\"",
-            "",
-            "export class Delete${4:ActionCreator} implements Action {",
-            "\treadonly type = DELETE_${3};",
-            "\tconstructor(public id: number) { }",
-            "}\n",
-            "export class Delete${4}Success implements Action {",
-            "\treadonly type = DELETE_${3}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n",
-            "export class Delete${4}Fail implements Action {",
-            "\treadonly type = DELETE_${3}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}",
-            "",
-            "export type Actions =",
-            "\t| Load${2}",
-            "\t| Load${2}Success",
-            "\t| Load${2}Fail",
-            "\t| Create${4}",
-            "\t| Create${4}Success",
-            "\t| Create${4}Fail",
-            "\t| Update${4}",
-            "\t| Update${4}Success",
-            "\t| Update${4}Fail",
-            "\t| Delete${4}",
-            "\t| Delete${4}Success",
-            "\t| Delete${4}Fail;",
-            ""
-        ]
-    },
-    "NgRx Basic Action": {
-        "prefix": "ngrx-action",
-        "description": "NgRx action constant and creator.",
-        "body": [
-            "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"\n",
-            "export class ${2:ActionCreator} implements Action {",
-            "\treadonly type = ${1};",
-            "\tconstructor() { }",
-            "}\n"
-        ]
-    },
-    "NgRx Success Action": {
-        "prefix": "ngrx-action-success",
-        "description": "NgRx action constant and creator as success",
-        "body": [
-            "export const ${1:ACTION_CONST}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"\n",
-            "export class ${2:ActionCreator}Success implements Action {",
-            "\treadonly type = ${1}_SUCCESS;",
-            "\tconstructor(public payload: any) { }",
-            "}\n"
-        ]
-    },
-    "NgRx Fail Action": {
-        "prefix": "ngrx-action-fail",
-        "description": "NgRx action constant and creator as  fail.",
-        "body": [
-            "export const ${1:ACTION_CONST}_FAIL = \"${1/[\\_]/ /g} FAIL\"\n",
-            "export class ${3:ActionCreator} implements Action {",
-            "\treadonly type = ${1}_FAIL;",
-            "\tconstructor(public payload: any) { }",
-            "}\n"
-        ]
-    },
-    "NgRx Effects Setup": {
-        "prefix": "ngrx-effect-setup",
-        "description": "NgRx effect setup",
-        "body": [
-            "import { Injectable } from '@angular/core';",
-            "import { Actions, createEffect, ofType } from '@ngrx/effects';",            
-            "// import { EMPTY } from 'rxjs';",
-            "// import { map, mergeMap, catchError } from 'rxjs/operators';",
-            "",
-            "import * as ${2:alias} from '${1:actions}';",
-            "//import all requried services or any dependencies",
-            "",
-            "@Injectable()",
-            "export class ${3:Name}Effects {",
-            "\tconstructor(private actions$: Actions) { }",
-            "",
-            "\t${4:effectName}$ = createEffect(() =>",
-            "\t\tthis.actions$.pipe(",
-            "\t\t\tofType(${2}${5:action}),",
-            "\t\t\tmergeMap(() => {",
-            "\t\t\t\t/*this.myService.pipe(",
-            "\t\t\t\t\tmap(data => data)",            
-            "\t\t\t\t\tcatchError(() => EMPTY)",
-            "\t\t\t\t*/",
-            "\t\t\t})",
-            "\t\t)",
-            "\t);",
-            "}"
-        ]
-    },
-    "NgRx Effect": {
-        "prefix": "ngrx-effect",
-        "description": "NgRx effect",
-        "body": [
-            "${1:effectName}$ = createEffect(() =>",
-            "\tthis.actions$.pipe(",
-            "\t\tofType(${2:action}),",
-            "\t\tmergeMap(() => {",
-            "\t\t\t/*this.myService.pipe(",
-            "\t\t\t\tmap(data => data)",            
-            "\t\t\t\tcatchError(() => EMPTY)",
-            "\t\t\t*/",
-            "\t\t})",
-            "\t)",
-            ");"
-        ]
-    },
-    "NgRx Root Effect Registration": {
-        "prefix": "ngrx-root-effect-registration",
-        "description": "NgRx Root Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
-        "body": [
-            "EffectsModule.forRoot([${1:effect}])"
-        ]
-    },
-    "NgRx Feature Effect Registration": {
-        "prefix": "ngrx-feat-effect-registration",
-        "description": "NgRx Feature Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
-        "body": [
-            "EffectsModule.forFeature([${1:effect}])"
-        ]
-    },
-    "NgRx Reducer Setup": {
-        "prefix": "ngrx-reducer-setup",
-        "description": "NgRx reducer setup",
-        "body": [
-            "import { Action, createReducer, on } from '@ngrx/store';",                        
-            "import * as ${2:alias} from '${1:actions}';",            
-            "",
-            "export interface State {",
-            "\t// define state ",
-            "};",
-            "",
-            "export const initialState = {",
-            "\t//set initial state",
-            "};",
-            "",
-            "const ${3:feature}Reducer = createReducer(",
-            "\tinitialState,",
-            "\ton(${2}${4:action}, state => ({ ...state, ${5:prop}: ${6:newValue} })),",            
-            ");",
-            "export function reducer(state: State, action: Action) {",
-            "\treturn ${3}Reducer(state, action);",
-            "}"            
-        ]
-    },
-    "NgRx Reducer": {
-        "prefix": "ngrx-reducer",
-        "description": "NgRx reducer",
-        "body": [            
-            "const ${1:feature}Reducer = createReducer(",
-            "\tinitialState,",
-            "\ton(${2:action}, state => ({ ...state, ${3:prop}: ${4:newValue} })),",            
-            ");",
-            "export function reducer(state: State, action: Action) {",
-            "\treturn ${1}Reducer(state, action);",
-            "}"
-        ]
-    },
-    "NgRx Reducer Ons": {
-        "prefix": "ngrx-on",
-        "description": "NgRx Reducer 'On'",
-        "body": [
-            "on(${1:action}, state => ({ ...state, ${2:prop}: ${3:newValue} })),"
-        ]
-    },
-    "NgRx Select Store": {
-        "prefix": "ngrx-store-select",
-        "description": "NgRx select store",
-        "body": [
-            "this.store.pipe(select('${1:sliceOfState}'))"
-        ]
-    },
-    "NgRx Dispatch Action": {
-        "prefix": "ngrx-dispatch-action",
-        "description": "NgRx Dispatch Action",
-        "body": [
-            "this.store.dispatch(${1:ActionClass});"
-        ]
-    },
-    "NgRx Selector": {
-        "prefix": "ngrx-selector",
-        "description": "NgRx Selector",
-        "body": [
-            "export const ${4:getStateSlice} = () =>",
-            "\tcreateSelector(${1:getState}, (state: ${2:any}) => state${3:state});"
-        ]
-    },
-    "NgRx Feature Selector": {
-        "prefix": "ngrx-feat-selector",
-        "description": "NgRx Feature Selector",
-        "body": [
-            "export const get${3:state} = createFeatureSelector<${2:any}>('${1:selector}');"
-        ]
-    },
-    "NgRx Devtool Instrument": {
-        "prefix": "ngrx-devtool-instrument",
-        "description": "NgRx Devltool Instrument.\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools'",
-        "body": [
-            "StoreDevtoolsModule.instrument({",
-            "\tmaxAge: ${1:maxAge},",
-            "\tlogOnly: false,",
-            "\tfeatures: {",
-            "\t\tpause: false,",
-            "\t\tlock: true,",
-            "\t\tpersist: true",
-            "\t}",
-            "})"
-        ]
-    },
-    "NgRx Entity Adapter Setup": {
-        "prefix": "ngrx-entity-adapter-setup",
-        "description": "NgRx Entity Adapter.",
-        "body": [
-            "import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';",
-            "",
-            "export interface ${1:CustomEntity} {",
-            "\t// define properties",
-            "}",
-            "",
-            "export interface State extends EntityState<${1}> {",
-            "\t// define entities state properties",
-            "}",            
-            "\n// define methods to be used in adapter\n",
-            "export const adapter: EntityAdapter<${1}> = createEntityAdapter<${1}>({",
-            "\t// define adapter methods",
-            "});"
-        ]
-    },
-    "NgRx Entities Setup": {
-        "prefix": "ngrx-entities-setup",
-        "description": "NgRx Entities Setup",
-        "body": [
-            "import { EntityMetadataMap } from '@ngrx/data';",
-            "",
-            "const entityMetadata: EntityMetadataMap = {",
-            "\t// define entities",
-            "}",
-            "",
-            "export const entityConfig = {",
-            "\t// entities",
-            "}"
-        ]
-    },
-    "NgRx Entity Store Registration": {
-        "prefix": "ngrx-entity-store-registration",
-        "description": "NgRx Entity Store Registration.\nimport { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';",
-        "body": [
-            "EntityDataModule.forRoot([${1:entityConfig}])"
-        ]
-    },
-    "NgRx Entity Data Service": {
-        "prefix": "ngrx-entity-data-service",
-        "description": "NgRx Entity Data Service.",
-        "body": [
-            "import { Injectable } from '@angular/core';",
-            "import {",
-            "\tEntityCollectionServiceBase,",
-            "\tEntityCollectionServiceElementsFactory",
-            "\tQueryParams",
-            "} from '@ngrx/data';",
+  "NgRx Actions Setup": {
+    "prefix": "ngrx-actions-setup",
+    "description": "NgRx actions fully configured with action constants, creators with success and fail.",
+    "body": [
+      "import { Action } from '@ngrx/store';",
+      "",
+      "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"",
+      "export const ${1}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"",
+      "export const ${1}_FAIL = \"${1/[\\_]/ /g} FAIL\"",
+      "",
+      "export class ${2:ActionCreator} implements Action {",
+      "\treadonly type = ${1};",
+      "\tconstructor() { }",
+      "}\n",
+      "export class ${2}Success implements Action {",
+      "\treadonly type = ${1}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class ${2}Fail implements Action {",
+      "\treadonly type = ${1}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export type Actions = ${2} | ${2}Success | ${2}Fail;"
+    ]
+  },
+  "NgRx Create Action Setup": {
+    "prefix": "ngrx-create-action-setup",
+    "description": "NgRx create action setup.",
+    "body": [
+      "import { createAction } from '@ngrx/store';",
+      "// ${1} action",
+      "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
+    ]
+  },
+  "NgRx Create Action": {
+    "prefix": "ngrx-create-action",
+    "description": "NgRx create action.",
+    "body": [
+      "// ${1} action",
+      "export const ${1:action} = createAction('[${2:source}] ${3:event}');"
+    ]
+  },
+  "NgRx Create Action with Props": {
+    "prefix": "ngrx-create-action-props",
+    "description": "NgRx create action with props.",
+    "body": [
+      "// ${1} action",
+      "export const ${1:action} = createAction(",
+      "\t'[${2:source}] ${3:event}',",
+      "\t props<{${4:key}: ${5:type}}>()",
+      ");"
+    ]
+  },
+  "NgRx Actions CRUD Setup": {
+    "prefix": "ngrx-actions-setup-crud",
+    "description": "NgRx actions for CRUD operations.",
+    "body": [
+      "import { Action } from '@ngrx/store';",
+      "",
+      "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"",
+      "export const ${1}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"",
+      "export const ${1}_FAIL = \"${1/[\\_]/ /g} FAIL\"",
+      "",
+      "export class Load${2:ActionCreator} implements Action {",
+      "\treadonly type = ${1};",
+      "}\n",
+      "export class Load${2}Success implements Action {",
+      "\treadonly type = ${1}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Load${2}Fail implements Action {",
+      "\treadonly type = ${1}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}",
+      "",
+      "export const CREATE_${3:ACTION_CONST} = \"CREATE ${3}\"",
+      "export const CREATE_${3}_SUCCESS = \"CREATE ${3} SUCCESS\"",
+      "export const CREATE_${3}_FAIL = \"CREATE ${3} FAIL\"",
+      "",
+      "export class Create${4:ActionCreator} implements Action {",
+      "\treadonly type = CREATE_${3};",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Create${4}Success implements Action {",
+      "\treadonly type = CREATE_${3}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Create${4}Fail implements Action {",
+      "\treadonly type = CREATE_${3}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}",
+      "",
+      "export const UPDATE_${3} = \"UPDATE ${3}\"",
+      "export const UPDATE_${3}_SUCCESS = \"UPDATE ${3} SUCCESS\"",
+      "export const UPDATE_${3}_FAIL = \"UPDATE ${3} FAIL\"",
+      "",
+      "export class Update${4} implements Action {",
+      "\treadonly type = UPDATE_${3};",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Update${4}Success implements Action {",
+      "\treadonly type = UPDATE_${3}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Update${4}Fail implements Action {",
+      "\treadonly type = UPDATE_${3}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}",
+      "",
+      "export const DELETE_${3} = \"DELETE ${3:ACTION_STR}\"",
+      "export const DELETE_${3}_SUCCESS = \"DELETE ${3} SUCCESS\"",
+      "export const DELETE_${3}_FAIL = \"DELETE ${3} FAIL\"",
+      "",
+      "export class Delete${4:ActionCreator} implements Action {",
+      "\treadonly type = DELETE_${3};",
+      "\tconstructor(public id: number) { }",
+      "}\n",
+      "export class Delete${4}Success implements Action {",
+      "\treadonly type = DELETE_${3}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n",
+      "export class Delete${4}Fail implements Action {",
+      "\treadonly type = DELETE_${3}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}",
+      "",
+      "export type Actions =",
+      "\t| Load${2}",
+      "\t| Load${2}Success",
+      "\t| Load${2}Fail",
+      "\t| Create${4}",
+      "\t| Create${4}Success",
+      "\t| Create${4}Fail",
+      "\t| Update${4}",
+      "\t| Update${4}Success",
+      "\t| Update${4}Fail",
+      "\t| Delete${4}",
+      "\t| Delete${4}Success",
+      "\t| Delete${4}Fail;",
+      ""
+    ]
+  },
+  "NgRx Basic Action": {
+    "prefix": "ngrx-action",
+    "description": "NgRx action constant and creator.",
+    "body": [
+      "export const ${1:ACTION_CONST} = \"${1/[\\_]/ /g}\"\n",
+      "export class ${2:ActionCreator} implements Action {",
+      "\treadonly type = ${1};",
+      "\tconstructor() { }",
+      "}\n"
+    ]
+  },
+  "NgRx Success Action": {
+    "prefix": "ngrx-action-success",
+    "description": "NgRx action constant and creator as success",
+    "body": [
+      "export const ${1:ACTION_CONST}_SUCCESS = \"${1/[\\_]/ /g} SUCCESS\"\n",
+      "export class ${2:ActionCreator}Success implements Action {",
+      "\treadonly type = ${1}_SUCCESS;",
+      "\tconstructor(public payload: any) { }",
+      "}\n"
+    ]
+  },
+  "NgRx Fail Action": {
+    "prefix": "ngrx-action-fail",
+    "description": "NgRx action constant and creator as  fail.",
+    "body": [
+      "export const ${1:ACTION_CONST}_FAIL = \"${1/[\\_]/ /g} FAIL\"\n",
+      "export class ${3:ActionCreator} implements Action {",
+      "\treadonly type = ${1}_FAIL;",
+      "\tconstructor(public payload: any) { }",
+      "}\n"
+    ]
+  },
+  "NgRx Effects Setup": {
+    "prefix": "ngrx-effect-setup",
+    "description": "NgRx effect setup",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import { Actions, createEffect, ofType } from '@ngrx/effects';",
+      "// import { EMPTY } from 'rxjs';",
+      "// import { map, mergeMap, catchError } from 'rxjs/operators';",
+      "",
+      "import * as ${2:alias} from '${1:actions}';",
+      "//import all requried services or any dependencies",
+      "",
+      "@Injectable()",
+      "export class ${3:Name}Effects {",
+      "\tconstructor(private actions$: Actions) { }",
+      "",
+      "\t${4:effectName}$ = createEffect(() =>",
+      "\t\tthis.actions$.pipe(",
+      "\t\t\tofType(${2}${5:action}),",
+      "\t\t\tmergeMap(() => {",
+      "\t\t\t\t/*this.myService.pipe(",
+      "\t\t\t\t\tmap(data => data)",
+      "\t\t\t\t\tcatchError(() => EMPTY)",
+      "\t\t\t\t*/",
+      "\t\t\t})",
+      "\t\t)",
+      "\t);",
+      "}"
+    ]
+  },
+  "NgRx Effect": {
+    "prefix": "ngrx-effect",
+    "description": "NgRx effect",
+    "body": [
+      "${1:effectName}$ = createEffect(() =>",
+      "\tthis.actions$.pipe(",
+      "\t\tofType(${2:action}),",
+      "\t\tmergeMap(() => {",
+      "\t\t\t/*this.myService.pipe(",
+      "\t\t\t\tmap(data => data)",
+      "\t\t\t\tcatchError(() => EMPTY)",
+      "\t\t\t*/",
+      "\t\t})",
+      "\t)",
+      ");"
+    ]
+  },
+  "NgRx Root Effect Registration": {
+    "prefix": "ngrx-root-effect-registration",
+    "description": "NgRx Root Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
+    "body": ["EffectsModule.forRoot([${1:effect}])"]
+  },
+  "NgRx Feature Effect Registration": {
+    "prefix": "ngrx-feat-effect-registration",
+    "description": "NgRx Feature Effect Registration.\nimport { EffectsModule } from '@ngrx/effects';",
+    "body": ["EffectsModule.forFeature([${1:effect}])"]
+  },
+  "NgRx Reducer Setup": {
+    "prefix": "ngrx-reducer-setup",
+    "description": "NgRx reducer setup",
+    "body": [
+      "import { Action, createReducer, on } from '@ngrx/store';",
+      "import * as ${2:alias} from '${1:actions}';",
+      "",
+      "export interface State {",
+      "\t// define state ",
+      "};",
+      "",
+      "export const initialState = {",
+      "\t//set initial state",
+      "};",
+      "",
+      "const ${3:feature}Reducer = createReducer(",
+      "\tinitialState,",
+      "\ton(${2}${4:action}, state => ({ ...state, ${5:prop}: ${6:newValue} })),",
+      ");",
+      "export function reducer(state: State, action: Action) {",
+      "\treturn ${3}Reducer(state, action);",
+      "}"
+    ]
+  },
+  "NgRx Reducer": {
+    "prefix": "ngrx-reducer",
+    "description": "NgRx reducer",
+    "body": [
+      "const ${1:feature}Reducer = createReducer(",
+      "\tinitialState,",
+      "\ton(${2:action}, state => ({ ...state, ${3:prop}: ${4:newValue} })),",
+      ");",
+      "export function reducer(state: State, action: Action) {",
+      "\treturn ${1}Reducer(state, action);",
+      "}"
+    ]
+  },
+  "NgRx Reducer Ons": {
+    "prefix": "ngrx-on",
+    "description": "NgRx Reducer 'On'",
+    "body": [
+      "on(${1:action}, state => ({ ...state, ${2:prop}: ${3:newValue} })),"
+    ]
+  },
+  "NgRx Select Store": {
+    "prefix": "ngrx-store-select",
+    "description": "NgRx select store",
+    "body": ["this.store.pipe(select('${1:sliceOfState}'))"]
+  },
+  "NgRx Dispatch Action": {
+    "prefix": "ngrx-dispatch-action",
+    "description": "NgRx Dispatch Action",
+    "body": ["this.store.dispatch(${1:ActionClass});"]
+  },
+  "NgRx Selector": {
+    "prefix": "ngrx-selector",
+    "description": "NgRx Selector",
+    "body": [
+      "export const ${4:getStateSlice} = () =>",
+      "\tcreateSelector(${1:getState}, (state: ${2:any}) => state${3:state});"
+    ]
+  },
+  "NgRx Feature Selector": {
+    "prefix": "ngrx-feat-selector",
+    "description": "NgRx Feature Selector",
+    "body": [
+      "export const get${3:state} = createFeatureSelector<${2:any}>('${1:selector}');"
+    ]
+  },
+  "NgRx Devtool Instrument": {
+    "prefix": "ngrx-devtool-instrument",
+    "description": "NgRx Devltool Instrument.\nimport { StoreDevtoolsModule } from '@ngrx/store-devtools'",
+    "body": [
+      "StoreDevtoolsModule.instrument({",
+      "\tmaxAge: ${1:maxAge},",
+      "\tlogOnly: false,",
+      "\tfeatures: {",
+      "\t\tpause: false,",
+      "\t\tlock: true,",
+      "\t\tpersist: true",
+      "\t}",
+      "})"
+    ]
+  },
+  "NgRx Entity Adapter Setup": {
+    "prefix": "ngrx-entity-adapter-setup",
+    "description": "NgRx Entity Adapter.",
+    "body": [
+      "import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';",
+      "",
+      "export interface ${1:CustomEntity} {",
+      "\t// define properties",
+      "}",
+      "",
+      "export interface State extends EntityState<${1}> {",
+      "\t// define entities state properties",
+      "}",
+      "\n// define methods to be used in adapter\n",
+      "export const adapter: EntityAdapter<${1}> = createEntityAdapter<${1}>({",
+      "\t// define adapter methods",
+      "});"
+    ]
+  },
+  "NgRx Entities Setup": {
+    "prefix": "ngrx-entities-setup",
+    "description": "NgRx Entities Setup",
+    "body": [
+      "import { EntityMetadataMap } from '@ngrx/data';",
+      "",
+      "const entityMetadata: EntityMetadataMap = {",
+      "\t// define entities",
+      "}",
+      "",
+      "export const entityConfig = {",
+      "\t// entities",
+      "}"
+    ]
+  },
+  "NgRx Entity Store Registration": {
+    "prefix": "ngrx-entity-store-registration",
+    "description": "NgRx Entity Store Registration.\nimport { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';",
+    "body": ["EntityDataModule.forRoot([${1:entityConfig}])"]
+  },
+  "NgRx Entity Data Service": {
+    "prefix": "ngrx-entity-data-service",
+    "description": "NgRx Entity Data Service.",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "import {",
+      "\tEntityCollectionServiceBase,",
+      "\tEntityCollectionServiceElementsFactory",
+      "\tQueryParams",
+      "} from '@ngrx/data';",
 
-            "import { Observable } from 'rxjs';",
-            "import { ${2:model} } from '${1:modelPath}';",
-            "",
-            "@Injectable({ providedIn: 'root' })",
-            "export class ${2}Service extends EntityCollectionServiceBase<${2}> {",
-            "\tconstructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {",
-            "\t\tsuper('${2}', serviceElementsFactory);",
-            "\t}",
-            "",
-            "\tgetAll(): Observable<${2}[]> {",
-            "\t\treturn super.getAll().pipe(/*data manupulation*/);",
-            "\t}",
-            "",
-            "\tgetById(id: string | number): Observable<${2}> {",
-            "\t\treturn super.getById(id).pipe(/*data manupulation*/);",
-            "\t}",
-            "",
-            "\tgetWithQuery(params: string | QueryParams): Observable<${2}[]> {",
-            "\t\treturn super.getWithQuery(params).pipe(/*data manupulation*/);",
-            "\t}",
-            "}"
-        ]
-    }
+      "import { Observable } from 'rxjs';",
+      "import { ${2:model} } from '${1:modelPath}';",
+      "",
+      "@Injectable({ providedIn: 'root' })",
+      "export class ${2}Service extends EntityCollectionServiceBase<${2}> {",
+      "\tconstructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {",
+      "\t\tsuper('${2}', serviceElementsFactory);",
+      "\t}",
+      "",
+      "\tgetAll(): Observable<${2}[]> {",
+      "\t\treturn super.getAll().pipe(/*data manupulation*/);",
+      "\t}",
+      "",
+      "\tgetById(id: string | number): Observable<${2}> {",
+      "\t\treturn super.getById(id).pipe(/*data manupulation*/);",
+      "\t}",
+      "",
+      "\tgetWithQuery(params: string | QueryParams): Observable<${2}[]> {",
+      "\t\treturn super.getWithQuery(params).pipe(/*data manupulation*/);",
+      "\t}",
+      "}"
+    ]
+  }
 }
