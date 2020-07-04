@@ -1,7 +1,8 @@
 # NgRx (Version 9) Snippets for VS Code
 
 [![Version](https://vsmarketplacebadge.apphb.com/version/hardikpthv.NgRxSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
-[![Install](https://vsmarketplacebadge.apphb.com/installs/hardikpthv.NgRxSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
+[![Install](https://vsmarketplacebadge.apphb.com/installs-short/hardikpthv.NgRxSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
+[![Downloads](https://vsmarketplacebadge.apphb.com/downloads-short/hardikpthv.NgRxSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
 [![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/hardikpthv.NgRxSnippets.svg)](https://marketplace.visualstudio.com/items?itemName=hardikpthv.NgRxSnippets)
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 
