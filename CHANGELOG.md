@@ -1,3 +1,36 @@
+<a name="9.1.0"></a>
+
+## 9.1.0 (2020-07-04)
+
+* Reverted Typescript snippets for:
+  * Effects and its setup to support [v7](https://v7.ngrx.io/guide/effects#writing-effects) style of using `@Effect()`
+
+<a name="9.0.0"></a>
+
+## 9.0.0 (2020-07-04)
+
+* Updated documentation [`README.md`](https://github.com/hardikpthv/vscode-ngrx-snippets/blob/master/README.md) for new snippets
+* Updated Typescript snippets for:
+  * `ngrx-effect-setup` -> make use of `createEffect`
+  * `ngrx-effect` -> make use of `createEffect`
+  * `ngrx-reducer-setup` -> make use of `createReducer`  
+* Added Typescript snippets for:
+  * `createAction` to create actions
+    * `ngrx-create-action-setup`
+    * `ngrx-create-action`
+    * `ngrx-create-action-props`
+  * `ngrx-root-effect-registration` to register effect in root module
+  * `ngrx-feat-effect-registration` to register effect in feature module
+  * `createReducer` to create reducers
+    * `ngrx-reducer`
+    * `ngrx-on` -> make use of `on`
+  * `StoreDevtoolsModule.instrument` configuration
+  * `createEntityAdapter` to create entity adapter 
+    * `ngrx-entity-adapter-setup`
+  * `EntityMetadataMap` to setup entities
+    * `ngrx-entities-setup`
+    * `ngrx-entity-store-registration` to register entity store
+  * `ngrx-entity-data-service` to create data service using `tEntityCollectionServiceBase`, `tEntityCollectionServiceElementsFactory` and other utility methods.
 
 <a name="0.4.0"></a>
 
@@ -7,7 +40,7 @@
 
 <a name="0.3.2"></a>
 
-## 0.3.2 (2018-09-08)
+## 0.3.2 (2018-05-30)
 
 * Fixed typo in snippet ([3d4d28f](https://github.com/hardikpthv/vscode-ngrx-snippets/pull/1/commits/3d4d28f110a92c86e86fd1a30729095d97691ce7))
 

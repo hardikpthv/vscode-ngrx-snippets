@@ -1,42 +1,42 @@
 {
-    "name": "NgRxSnippets",
-    "displayName": "NgRx Snippets",
-    "description": "NgRx with TypeScript snippets for Angular Apps",
-    "version": "0.4.0",
-    "publisher": "hardikpthv",
-    "license": "MIT",
-    "icon": "images/ngrx.png",
-    "galleryBanner": {
-        "color": "#eff1f3",
-        "theme": "light"
-    },
-    "homepage": "https://github.com/hardikpthv/vscode-ngrx-snippets/blob/master/README.md",
-    "bugs": {
-        "url": "https://github.com/hardikpthv/vscode-ngrx-snippets/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/hardikpthv/vscode-ngrx-snippets.git"
-    },
-    "keywords": [
-        "ngrx",
-        "ngrx-effects",
-        "Angular",
-        "Reactive",
-        "TypeScript"
-    ],
-    "engines": {
-        "vscode": "^1.10.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "typescript",
-                "path": "./snippets/typescript.json"
-            }
-        ]
-    }
+  "name": "NgRxSnippets",
+  "displayName": "NgRx Snippets (Version 9)",
+  "description": "NgRx with TypeScript snippets for Angular Apps",
+  "version": "9.0.0",
+  "publisher": "hardikpthv",
+  "license": "MIT",
+  "icon": "images/ngrx.png",
+  "galleryBanner": {
+    "color": "#eff1f3",
+    "theme": "light"
+  },
+  "homepage": "https://github.com/hardikpthv/vscode-ngrx-snippets/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/hardikpthv/vscode-ngrx-snippets/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hardikpthv/vscode-ngrx-snippets.git"
+  },
+  "keywords": [
+    "ngrx",
+    "ngrx-effects",
+    "Angular",
+    "Reactive",
+    "TypeScript"
+  ],
+  "engines": {
+    "vscode": "^1.10.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      }
+    ]
+  }
 }
